@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Custom ITEA Rooms</title>
+	<script src="itea_room_setup_cost_calculator.js"></script>
+</head>
+<body>
+	<form id="form">
+		<fieldset>
+			<legend>Customer Information</legend>
+			<label for="name">Name: </label><input type="text" id="name" name="name" required><br>
+			<label for="mnum">Mobile Number: </label><input type="text" id="mnum" name="mnum" pattern="^09[0-9]{9}" placeholder="09XXXXXXXXX"><br> 
+			<label for="email">Email Address: </label><input type="email" id="email" name="email"><br>
+		</fieldset>
+		
+		<fieldset>
+			<legend>ITEA Details</legend>
+			<label for="tiers">Number of Occupants(1-5)</label>
+			<input type="number" name="tiers" id="tiers" min="1" max="5" required><br>
+			Room Type<br>
+			<input type="radio" name="rtype" id="rtbedroom" value="rtbedroom" onchange="setBedSizes()" checked>
+			<label for="rtbedroom" id="labelrt_rtbedroom">Bedroom</label>
+			<br>
+			<input type="radio" name="rtype" id="rtliving" value="rtliving" onchange="setBedSizes()">
+			<label for="rtliving" id="labelrt_rtliving">Living Room</label>
+			<br>
+			<input type="radio" name="rtype" id="rtoffice" value="rtoffice" onchange="setBedSizes()">
+			<label for="rtoffice" id="labelrt_rtoffice">Office</label>
+			<br>
+			<input type="radio" name="rtype" id="rtchildren" value="rtchildren" onchange="setBedSizes()">
+			<label for="rtchildren" id="labelrt_rtchildren">Children's Room</label>
+			<br>
+
+			Bed Size<br>
+			<input type="radio" name="bsize" id="bssingle" value="12000" checked><label for="bssingle" id="labelbs_bssingle">Single</label><br>
+			<input type="radio" name="bsize" id="bsdouble" value="13500"><label for="bsdouble" id="labelbs_bsdouble">Double</label><br>
+			<input type="radio" name="bsize" id="bsqueen" value="16000"><label for="bsqueen" id="labelbs_bsqueen">Queen</label><br>
+			<input type="radio" name="bsize" id="bsking" value="20000"><label for="bsking" id="labelbs_bsking">King</label><br>
+
+			Cabinets<br>
+			<input type="radio" name="cabinets" id="cbook" value="5000" checked><label for="cbook" id="labelc_cbook">Bookcases</label><br>
+			<input type="radio" name="cabinets" id="cstorage" value="10500"><label for="cstorage" id="labelc_cstorage">Storage shelves</label><br>
+			<input type="radio" name="cabinets" id="cwall" value="2500"><label for="cwall" id="labelc_cwall">Wall shelves</label><br>
+			Tables<br>
+			<input type="checkbox" name="tables" id="tdesk" value="7000"><label for="tdesk" id="labelt_tdesk">Desk</label><br>
+			<input type="checkbox" name="tables" id="tbedside" value="3500"><label for="tbedside" id="labelt_tbedside">Bedside Table</label><br>
+			<input type="checkbox" name="tables" id="tmulti" value="10000"><label for="tmulti" id="labelt_tmulti">Multifunctional Table</label><br>
+			<input type="checkbox" name="tables" id="tdress"value="8000"><label for="tdress" id="labelt_tdress">Dressing Table</label><br>
+			Decorative Additions<br>
+			<input type="checkbox" name="decorative" id="dmirror" value="2500"><label for="dmirror" id="labeld_dmirror">Mirror</label><br>
+			<input type="checkbox" name="decorative" id="drug" value="8000"><label for="drug" id="labeld_drug">Rug</label><br>
+			<input type="checkbox" name="decorative" id="daccents" value="1000"><label for="daccents" id="labeld_drug">Wall accents</label><br>
+			<input type="checkbox" name="decorative" id="dclock" value="500"><label for="dclock" id="labeld_dclock">Clock</label><br>
+			<label for="rsize">Room Size</label>
+			<select name="rsize" id="rsize" required>
+				<option value="1">Small</option>
+				<option value="1.25">Medium</option>
+				<option value="1.5">Large</option>
+				<option value="2">Extra Large</option>
+			</select><br>
+		</fieldset>
+
+		<fieldset>
+			<legend>Delivery Details</legend>
+			<label>Shipping</label>
+			<br>
+      			<input type="radio" name="deliveryOption" id="deliveryYes" value="1000" onchange="isDelivered()" checked>
+      			<label id="label_deliveryYes" for="deliveryYes">Delivery</label>
+			<br>
+      			<input type="radio" name="deliveryOption" id="deliveryNo" onchange="isDelivered()">
+      			<label id="label_physicalCopyNo" for="physicalCopyNo">Third-party Pickup</label>
+      			<br>
+      			
+			<label for="daddress">Delivery Address</label><br>
+			<textarea name="daddress" id="daddress" rows="5" cols="50" placeholder="Address here..."></textarea><br>
+			<label for="ddate">Preferred delivery date</label>
+			<input type="date" name="ddate" id="ddate" onchange="allowedDate()" required><br>
+			<div id="dateError" style="display: none;">
+				<p>Provide a future date.</p>
+			</div>
+
+			<label for="dtime">Preferred delivery time</label>
+			<input type="time" name="dtime" id="dtime" onchange="allowedTime()" required><br>	
+			<div id="timeError" style="display: none;">
+				<p>Select a time between 9AM and 6PM.</p>
+			</div>		
+		</fieldset>
+		<input type="submit" onclick="submitClicked()" value="Submit">
+		<input type="reset" onclick="resetRadio()" value="Reset">
+	</form>
+
+	<script type="text/javascript">
+		document.getElementById('form').addEventListener("submit", function (event) {
+			e.preventDefault();
+		});
+	</script>
+</body>
+</html>

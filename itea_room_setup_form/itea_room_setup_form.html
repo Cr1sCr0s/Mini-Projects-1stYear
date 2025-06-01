@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+
+<!-- 
+11.8.24
+ -->
+
+<html>
+
+  <head>
+  
+    <title> ITEA | Quality Furniture </title>
+    
+  </head>
+  
+  <body>
+  
+    <h1> ITEA </h1>
+  
+    <form>
+      <fieldset>
+      
+        <legend> Client Information </legend>
+          <label> User Name:
+            <input type="text" name="username" title="please input username" required/>
+          </label><br/>
+          <label> Password:
+            <input type="password" name="password" title="please input password" required/>
+          </label><br/>
+          <label> Mobile Number:
+            <input 
+            type="tel" 
+            name="mobilenumber" 
+            pattern="[0]{1}[9]{1}[0-9]{9}" 
+            placeholder="09XXXXXXXXX" 
+            title="please input your phone number" 
+            required/>
+          </label><br/>
+          <label> Email Address:
+            <input type="email" name="emailaddress" title="please input email" required/>
+          </label><br/>
+          
+      </fieldset>
+      <br/>
+      <fieldset>
+      
+        <legend> ITEA Details </legend>
+          <label> Number of Occupants(1-5)
+            <input type="text" name="occupants"/>
+          </label><br/>
+          
+          <label> Room Type
+          <br/>
+            <input type="radio" name="roomtype" value="bedroom" checked/> Bedroom
+          </label><br/>
+          <label>
+            <input type="radio" name="roomtype" value="livingroom"/> Living Room
+          </label><br/>
+          <label>
+            <input type="radio" name="roomtype" value="office"/> Office
+          </label><br/>
+          <label>
+            <input type="radio" name="roomtype" value="children'sroom"/> Children's Room
+          </label><br/>
+          
+          <label> Bed Size
+          <br/>
+            <input type="radio" name="bedsize" value="single" checked/> Single
+          </label><br/>
+          <label>
+            <input type="radio" name="bedsize" value="double"/> Double
+          </label><br/>
+          <label>
+            <input type="radio" name="bedsize" value="queen"/> Queen
+          </label><br/>
+          <label>
+            <input type="radio" name="bedsize" value="king"/> King
+          </label><br/>
+          
+          <label> Cabinets
+          <br/>
+            <input type="radio" name="cabinets" value="bookcases" checked/> Bookcases
+          </label><br/>
+          <label>
+            <input type="radio" name="cabinets" value="storageshelves"/> Storage Shelves
+          </label><br/>
+          <label>
+            <input type="radio" name="cabinets" value="wallshelves"/> Wall Shelves
+          </label><br/>
+
+          <label> Tables
+          <br/>
+            <input type="checkbox" name="tables" value="desk"/> Desk
+          </label><br/>
+          <label>
+            <input type="checkbox" name="tables" value="bedsidetable"/> Bedside Table
+          </label><br/>
+          <label>
+            <input type="checkbox" name="tables" value="multifunctionaltable"/> Multifunctional Table
+          </label><br/>
+          <label>
+            <input type="checkbox" name="tables" value="dressingtable"/> Dressing Table
+          </label><br/>
+          
+          <label> Decorative Additions
+          <br/>
+            <input type="checkbox" name="decorativeadditions" value="mirror"/> Mirror
+          </label><br/>
+          <label>
+            <input type="checkbox" name="decorativeadditions" value="rug"/> Rug
+          </label><br/>
+          <label>
+            <input type="checkbox" name="decorativeadditions" value="wallaccents"/> Wall Accents
+          </label><br/>
+          <label>
+            <input type="checkbox" name="decorativeadditions" value="clock"/> Clock
+          </label><br/>
+          
+          <label>
+          Room Size
+            <select name="roomsize">
+            <option value="small"> Small </option>
+            <option value="medium"> Medium </option>
+            <option value="large"> Large </option>
+            </select>
+          </label>
+          
+      </fieldset>
+      <br/>
+      <fieldset>
+      
+        <legend> Delivery Details </legend>
+          <label> Address
+          <br/>
+            <textarea rows="4" cols="60" title="please input your address" placeholder="Input your address here..." required></textarea>
+          </label><br/>
+          <label> Preferred Date
+            <input type="date" name="preferreddate" title="please input your preferred date" required/>
+          </label><br/>
+          <label> Preferred Time
+            <input type="time" name="preferredtime" title="please input your preferred time" required/>
+          </label><br/>
+          
+      </fieldset>
+      <br/>
+      
+      <button type="submit"> Submit </button>
+      <button type="reset"> Reset </button>
+    </form>
+    
+  </body>
+  
+</html>

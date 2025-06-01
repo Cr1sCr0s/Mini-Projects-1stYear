@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<!-- 
+11.14.24
+ -->
+
+<!-- 
+NOTES:
+Template from W3Schools
+Images from Pexels
+
+copied the template and just changed values that were taught
+did not tamper with w3.css file and javascript
+
+made all html and css local
+changed images to local
+
+moved inline styles to relayo_ex9.css
+ -->
+
+
+<html>
+
+<!--JavaScript from Template-->
+<script>
+// Script to open and close sidebar
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("myOverlay").style.display = "block";
+}
+ 
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("myOverlay").style.display = "none";
+}
+
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+</script>
+
+
+ <head>
+  <title> ITEA | Quality Furniture </title>
+
+  <link rel="stylesheet" href="w3.css">
+  <link rel="stylesheet" href="poppins.css">
+  <link rel="stylesheet" href="itea_room_setup_form_css.css">
+
+ </head>
+
+ <body>
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding sidebar" id="mySidebar"><br>
+  <div class="w3-container">
+    <h3 class="w3-padding-64"><b>ITEA<br>Furniture</b></h3>
+  </div>
+  <div class="w3-bar-block">
+    <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a> 
+    <a href="#showcase" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Client Information</a> 
+    <a href="#services" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">ITEA Details</a> 
+    <a href="#designers" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Delivery Details</a> 
+  </div>
+</nav>
+
+<!-- Top menu on small screens -->
+<header class="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding">
+  <a href="javascript:void(0)" class="w3-button w3-red w3-margin-right" onclick="w3_open()">☰</a>
+  <span>ITEA</span>
+</header>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large overlaysmall" onclick="w3_close()" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main content">
+
+  <!-- Header -->
+  <div class="w3-container header" id="showcase">
+    <h1 class="w3-jumbo"><b>Description</b></h1>
+    <h1 class="w3-xxxlarge w3-text-red"><b>Showcase</b></h1>
+    <hr class="w3-round line">
+  </div>
+  
+  <!-- Photo grid (modal) -->
+  <div class="w3-row-padding">
+    <div class="w3-half">
+      <img src="bedroom.jpeg" class="image" onclick="onClick(this)" alt="clean bedroom">
+      <img src="livingroom.jpeg" class="image" onclick="onClick(this)" alt="clean living room">
+      <img src="office.jpg" class="image" onclick="onClick(this)" alt="clean office">
+    </div>
+
+    <div class="w3-half">
+      <img src="children's_room.jpg" class="image" onclick="onClick(this)" alt="clean children's room">
+      <img src="livingroom2.jpg" class="image" onclick="onClick(this)" alt="another living room">
+      <img src="office2.jpg" class="image" onclick="onClick(this)" alt="another office">
+    </div>
+  </div>
+
+  <!-- Modal for full size images on click-->
+  <div id="modal01" class="w3-modal w3-black modal" onclick="this.style.display='none'">
+    <span class="w3-button w3-black w3-xxlarge w3-display-topright">×</span>
+    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+      <img id="img01" class="w3-image">
+      <p id="caption"></p>
+    </div>
+  </div>
+
+  <!-- Client Information & start of form-->
+ <form>
+  <div class="w3-container" id="services" class="client">
+    <h1 class="w3-xxxlarge w3-text-red"><b>Client Information</b></h1>
+    <hr class="w3-round line">
+
+      <fieldset>
+
+          <label> User Name:
+            <input type="text" name="username" title="please input username" class="textbox"required/>
+          </label><br/>
+          <label> Password:
+            <input type="password" name="password" title="please input password" class="textbox" required/>
+          </label><br/>
+          <label> Mobile Number:
+            <input 
+            type="tel" 
+            name="mobilenumber" 
+            pattern="[0]{1}[9]{1}[0-9]{9}" 
+            placeholder="09XXXXXXXXX" 
+            title="please input your phone number"
+            class="textbox"
+            required/>
+          </label><br/>
+          <label> Email Address:
+            <input type="email" name="emailaddress" title="please input email" class="textbox" required/>
+          </label><br/>
+
+      </fieldset>
+  </div>
+  
+  <!-- ITEA Details -->
+  <div class="w3-container client" id="designers">
+    <h1 class="w3-xxxlarge w3-text-red"><b>ITEA Details</b></h1>
+    <hr class="w3-round line">
+      <fieldset>
+      
+          <label><b> Number of Occupants(1-5) </b>
+            <input type="text" name="occupants" class="textbox"/>
+          </label><br/>
+          
+          <label> <b> Room Type </b>
+          <br/>
+            <input type="radio" name="roomtype" value="bedroom" checked/> Bedroom
+          </label><br/>
+          <label>
+            <input type="radio" name="roomtype" value="livingroom"/> Living Room
+          </label><br/>
+          <label>
+            <input type="radio" name="roomtype" value="office"/> Office
+          </label><br/>
+          <label>
+            <input type="radio" name="roomtype" value="children'sroom"/> Children's Room
+          </label><br/>
+          
+          <label> <b> Bed Size </b>
+          <br/>
+            <input type="radio" name="bedsize" value="single" checked/> Single
+          </label><br/>
+          <label>
+            <input type="radio" name="bedsize" value="double"/> Double
+          </label><br/>
+          <label>
+            <input type="radio" name="bedsize" value="queen"/> Queen
+          </label><br/>
+          <label>
+            <input type="radio" name="bedsize" value="king"/> King
+          </label><br/>
+          
+          <label> <b> Cabinets </b>
+          <br/>
+            <input type="radio" name="cabinets" value="bookcases" checked/> Bookcases
+          </label><br/>
+          <label>
+            <input type="radio" name="cabinets" value="storageshelves"/> Storage Shelves
+          </label><br/>
+          <label>
+            <input type="radio" name="cabinets" value="wallshelves"/> Wall Shelves
+          </label><br/>
+
+          <label> <b> Tables </b>
+          <br/>
+            <input type="checkbox" name="tables" value="desk"/> Desk
+          </label><br/>
+          <label>
+            <input type="checkbox" name="tables" value="bedsidetable"/> Bedside Table
+          </label><br/>
+          <label>
+            <input type="checkbox" name="tables" value="multifunctionaltable"/> Multifunctional Table
+          </label><br/>
+          <label>
+            <input type="checkbox" name="tables" value="dressingtable"/> Dressing Table
+          </label><br/>
+          
+          <label> <b> Decorative Additions </b>
+          <br/>
+            <input type="checkbox" name="decorativeadditions" value="mirror"/> Mirror
+          </label><br/>
+          <label>
+            <input type="checkbox" name="decorativeadditions" value="rug"/> Rug
+          </label><br/>
+          <label>
+            <input type="checkbox" name="decorativeadditions" value="wallaccents"/> Wall Accents
+          </label><br/>
+          <label>
+            <input type="checkbox" name="decorativeadditions" value="clock"/> Clock
+          </label><br/>
+          
+          <label>
+          <b> Room Size </b>
+            <br/>
+            <select name="roomsize">
+            <option value="small"> Small </option>
+            <option value="medium"> Medium </option>
+            <option value="large"> Large </option>
+            </select>
+          </label>
+          
+      </fieldset>
+  </div>
+
+  <!-- Delivery Details -->
+  <div class="w3-container client" id="contact">
+    <h1 class="w3-xxxlarge w3-text-red"><b>Delivery Details</b></h1>
+    <hr class="w3-round line">
+      <fieldset>
+      
+          <label> Address
+          <br/>
+            <textarea rows="4" cols="60" title="please input your address" placeholder="Input your address here..." class="textbox" required></textarea>
+          </label><br/>
+          <label> Preferred Date
+            <input type="date" name="preferreddate" title="please input your preferred date" class="textbox" required/>
+          </label><br/>
+          <label> Preferred Time
+            <input type="time" name="preferredtime" title="please input your preferred time" class="textbox" required/>
+          </label><br/>
+          
+      </fieldset>
+      <br/>
+ <form>
+
+      <br/>
+      <button type="reset" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom"> Reset </button>
+      <button type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom"> Submit </button>
+  </div>
+
+<!-- End of page content -->
+</div>
+
+<!-- Container -->
+<div class="w3-light-grey w3-container w3-padding-32 container"><p class="w3-right">Website Template <a href="https://www.w3schools.com" title="W3Schools" class="w3-hover-opacity">W3Schools</a></p></div>
+
+ </body>
+</html>
